@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Index Page</title>
+</head>
+<style type="text/css">
+  /* common */
+  html, body {height: 100%;scrollbar-face-color:#E7E8E8; scrollbar-shadow-color:#8E8E8E;scrollbar-highlight-color:#FFFFFF; scrollbar-3dlight-color:#D1D1D1;scrollbar-darkshadow-color: #FFFFFF; scrollbar-track-color:#F2F3F4;scrollbar-arrow-color:#787878;}
+  #middle_content {position:absolute;top:50%;left:50%;width:990px;height:640px;margin:-330px 0 0 -495px;border:0;}
+  * form {padding:0;margin:0;}
+  body {height: 100%;padding: 0;margin: 0;font: 12px 굴림, Gulim, serif;color: #333;}
+  /* 링크 점선 없애기 */
+  a,p,td{selector-dummy:expression(this.hideFocus=true)}
+  th, td, input, textarea, select {font: 12px 굴림, Gulim, serif;color: #333;}
+  a img {border: none;}
+  a:link, a:visited, a:hover {color: #333;text-decoration: none;}
+  .rdo_bgcolor {background-color: transparent;margin-bottom: -2px;}
+  .chk_bgcolor {background-color: transparent;margin-bottom: -2px;}
+  /*리스트에 체크박스*/
+  .list_check {height:13px;padding:0px;margin:0px;background-color:transparent;}
+  .input {border-right: #bfbfbf 1px solid; border-top: #bfbfbf 1px solid; font-size: 11px; border-left: #bfbfbf 1px solid; color: #4a4a4a; border-bottom: #bfbfbf 1px solid; font-family: verdana,  helvetica, geneva,sans-serif; background-color: #f9f9f9;}
+  select {font-size: 11px; color: #4a4a4a; font-family: verdana,  helvetica, geneva,sans-serif; background-color: #f9f9f9;}
+  .ta {font-size:11px; color:#4a4a4a; font-family:돋움,verdana, arial, helvetica, geneva,sans-serif;}
+  .ta a {color:#4a4a4a; text-decoration:none;}
+  .ta a:hover {color:#c2050e; text-decoration:none;}
+  .tk {font-size:11px; color:#666; line-height:13pt; font-family:돋움,verdana, arial, helvetica, geneva,sans-serif;}
+  .tk1 {font-size:12px; color:#4a4a4a; line-height:13pt; font-family:돋움,verdana, arial, helvetica, geneva,sans-serif;}
+  .tk1 {font-size:12px; color:#4a4a4a; line-height:13pt; font-family:돋움,verdana, arial, helvetica, geneva,sans-serif}
+  .tk1 a {color:#4a4a4a; text-decoration:none}
+  .tk1 a:hover {color:#c2050e; text-decoration:none}
+  .title {font-size:10px; color:#4a4a4a; line-height:13pt; font-family:verdana, helvetica, geneva,sans-serif;}
+  .ma-left10 { margin-left:10px}
+  #overlay {display:none;position:absolute;left:0px;top:0px;text-align:center;z-index:9999;/*background-image:url(background-trans.png);*/}
+  #overlay div {height:100%;background-color:#ccc;opacity:0.8;filter:alpha(opacity=80);/*For IE5-7*/-ms-filter:"alpha(opacity=80)";/*For IE8*/border:1px solid #ccc;font-weight:bold;text-align:center; }
+  #overlay span {font-size:x-large;font-weight:bold;color:blue;}
+</style>
+<script type="text/javascript">
+function signIn(){
+	document.form.submit();
+}
+</script>
+<body>
+<div id="middle_content">
+<form name="form" id="form" method="post" action="http://v7.dev.samsung.net/login/openapi/privileged-login.mysingle">
+<input type="hidden" name="authToken" value="7cf1619759a5acc09e2f8f62e6c2b63413ccb7b8468c62b5e6436f8211317e9dcf878f9a26ce15a0"/>
+<table width="990" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:36px">
+  <tr>
+         <td><img src="/html5/static/image/login/default_on.jpg" width="990" height="527"/></td>
+     
+  </tr>
+    <tr id="loginLimitAreaTop">
+      <td>
+        <div style="margin-left:103px">
+        <table id="loginLimitAreaLeft" width="776px" border="0" cellspacing="0" cellpadding="0" border="0" >
+          <tr bgcolor="#dfdfdf">
+            <td width="9px" align="left" style="padding-right:6px"><img src="static/image/login/new_left.gif" width="9" height="60" /></td>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom:6px">
+                <tr>
+                  <td class="title">User ID</td>
+                </tr>
+                <tr>
+                  <td class="ma-left10">
+
+                 <input type="text" name="USERID" onfocus="this.select()" class="input" style="ime-mode: inactive; width: 110px;" tabindex="1" size="10" />
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ma-left10" style="margin-bottom:6px">
+                <tr>
+                  <td class="title">Password</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="password" name="USERPASSWORD" onfocus="this.select()" onkeypress="if(event.keyCode==13) signIn();" class="input" style="ime-mode: inactive; width: 110px" maxlength="12" tabindex="2" size="10" />
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ma-left10" style="margin-bottom:6px">
+                <tr>
+                  <td class="title">Language</td>
+                </tr>
+                <tr>
+                  <td>
+                    <select name="LANG" style="width:120px;" id="loginLanguage">
+                      <option value="en_US.EUC-KR" selected='selected'>
+                      한국어
+                      </option>
+                      <option value="ko_KR.EUC-KR">
+                      영어
+                      </option>
+                      <option value="ja_JP.SJIS" >
+                      일본어
+                      </option>
+                      <option value="zh_CN.GB2312" >
+                      중국어
+                      </option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:9px; margin-left:3px;">
+                <tr>
+                  <td class="tk">
+                    <input type="checkbox" name="saveID" align="left" class="list_check"/>
+                    <a href="#"><b>ID 저장</b></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tk">
+
+                    <input type="checkbox" name="fullscreen" id="fullscreen" style="cursor:hand" onfocus="this.blur()" align="left" class="list_check"/> fullscreen
+          
+                  </td>
+                </tr>
+                </table>
+              </td>         
+            <td style="padding:10px 15px 0px 5px;">
+              <a onclick="javascript:signIn();" onkeypress="if(event.keyCode==13) signIn();" style="cursor:hand;" >
+                <img src="static/image/login/login.gif" width="60" height="13"  border="0" alt="Login button" />
+              </a>
+            </td>
+            <td width="20px;"><img src="static/image/login/line.gif" width="3" height="60" /></td>
+            <td width="100px;">
+              <div class="tk1"><img height="5" alt="" src="static/image/login/arrow01.gif" width="3" vspace="2" border="0"/><a href="#"> 신규 가입</a></div>
+              <div class="tk1"><img height="5" alt="" src="static/image/login/arrow01.gif" width="3" vspace="2" border="0"/><a href="#"> Service Desk</a></div>            
+            </td>
+            <td width="100px;">
+              <div class="tk1"><img height="5" alt="" src="static/image/login/arrow01.gif" width="3" vspace="2" border="0"/><a href="#"> 비밀번호 찾기</a></div>        
+              <div class="tk1"><img height="5" alt="" src="static/image/login/arrow02.gif" width="3" vspace="2" border="0"/><a style="cursor:hand;" > 즐겨찾기 추가</a></div>        
+            </td>
+            <td width="9px" align="right"><img src="static/image/login/new_right.gif" width="9" height="60" /></td>          
+          </tr>
+        </table>
+        </div>
+      </td>
+  </tr>
+  <!--도우미 프로그램 설치 및 copyright관련--> 
+  <tr>
+    <td>
+      <div style="margin-left:103px">
+      <table width="100%">
+      <tr>
+        <td class="ta" style="padding-left:10px">임직원을 위한 시스템으로서 인가된 분만 사용할 수 있습니다. 불법으로 사용시에는 법적 제재를 받을 수가 있습니다.</td>
+      </tr>
+      <tr>
+        <td class="ta" style="padding-left:10px">
+          <script type="text/javascript">
+          <!-- // <![CDATA[
+          var cdate = new Date();
+          document.write("Copyright &copy; 2001-"+cdate.getFullYear()+" Samsung. All rights reserved.");
+          // ]]> -->
+          </script>     
+        </td>
+      </tr>
+      </table>
+      </div>
+    </td>
+  </tr>
+  <!--//도우미 프로그램 설치 및 copyright관련--> 
+</table>
+
+
+<span id="FIELD"></span>
+<span id="OCCURS"></span>
+</form>
+</div>
+</body>
+</html>

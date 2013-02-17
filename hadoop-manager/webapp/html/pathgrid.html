@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Samsung mySingle</title>     
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />    
+    <link rel="stylesheet" type="text/css" href="../css/components.css" />
+    <style>
+#wrap {background:none;background-color:#fff} 
+#header_wrap {min-height:40px; clear:both; background:#1b1b1b; position: fixed; top:0; left:0; right:0; z-index:3030;}
+#wrap #lnb {background-image:none;background-color:#fff width:180px; padding-left:20px;}
+#wrap #container {background-image:none; background-color:#fff; top:auto}
+#wrap #container.layout2 #content {padding-top:45px; padding-left:230px;}
+.x-grid-cell-topic b {display: block;}
+.x-grid-cell-topic .x-grid-cell-inner {white-space: normal;}
+.x-grid-cell-topic a {color: #385F95;text-decoration: none; }
+.x-grid-cell-topic a:hover {text-decoration:underline;}
+.x-grid-cell-topic .x-grid-cell-innerf {padding: 5px;}
+.x-grid-rowbody {padding: 0 5px 5px 5px;}   
+#lnb .comunity-list ul li p a {height:auto; padding-top:5px; padding-bottom:3px; *text-decoration:none}
+:root #lnb .comunity-list ul li p a {padding-bottom:1px \0/IE9;}
+#lnb .comunity-list ul li ul {width:auto; *width:158px;}
+.list-menu {padding:10px 8px 10px 0;min-height:20px; text-align:left;}
+.text_list {float:left; height:33px; *height:19px;  vertical-align:top; padding:5px; *padding-top:7px; width:60%;
+    background-color: #ffffff;border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    border-radius: 4px 4px 4px 4px}
+.graph_area {text-align:left; margin-bottom:10px; }
+.btn_grap {display:inline-block; margin-left:10px; margin-top:5px; text-decoration:underline !important; line-height:18px;height:18px; padding-right:20px; font-size:11px; font-weight:bold; font-family:'돋음',dotum,sans-serif; background:url(/static/common/image/common/bg_btn_icon.gif)}
+.btn_grap.open {background-position:right -55px !important}
+.btn_grap.close {background-position:right -77px !important}
+.button.type06 {height:auto;}
+:root .button.type06 {line-height:19px \0/IE9;}
+.button.type09 {height:auto;}
+.search_wrap {z-index:2000}
+.search_wrap .combo_list {float:left; width:130px; line-height:20px; margin-right:5px; height:auto; padding:6px; vertical-align: middle;border-radius:4px 4px 4px 4px; box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset;}
+.search_wrap #select-logs {float:left; margin-right:5px;}
+.search_list_wrap {position:relative; float:left; padding-left:5px; }
+.search_list {position:absolute; top:34px; left:5px; border:1px solid #424242; background:#eef0f4; padding:1px; min-width:66px}
+.search_list li {display:block; background:#e3e6ed; padding:1px; cursor:pointer}
+.search_list li a{display:block; color:#3f3f3f; line-height:20px; padding:0 8px 0;}
+.search_list li a:hover {background:#fff; }
+.btn-group {float:left; margin-left:10px;}
+#lnb .comunity-list ul li div {display:inherit; overflow:inherit}
+#lnb .comunity-list ul li .list-wrap {display:none;}
+#lnb .comunity-list ul li .arrow {position:absolute;}
+#lnb .comunity-list ul li .popover-inner {display:inherit}
+.btn_wrap {margin-top:20px;}
+.btn_wrap .btn {margin-right:3px; font-size:12px; padding:2px 10px}
+
+
+.path_area {margin-top:20px;border-bottom:1px solid #ebebeb; white-space: nowrap; line-height:26px; }
+.path_area .icon-play {margin-top:2px; opacity:0.5; transform:scale(0.5,0.7);
+-ms-transform:scale(0.5,0.7); /* IE 9 */
+-moz-transform:scale(0.5,0.7); /* Firefox */
+-webkit-transform:scale(0.5,0.7); /* Safari and Chrome */
+-o-transform:scale(0.5,0.7); /* Opera */}
+.path_area a,.path_area span {display:inline-block; font-size:11px; color:#888888;line-height:26px; }
+.path_area span.on {font-weight:bold}
+    </style>
+    
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+        
+</head>
+<body>
+<div id="wrap">
+    <!-- header -->
+    <div id="header_wrap">
+        <ul>
+            <li class="active"><a href="dashboard_home.jsp">Home</a></li>
+            <li><a href="#">Menu1</a></li>
+            <li><a href="#">Menu2</a></li>
+        </ul>
+    </div>
+    <!-- // header -->
+
+    <!-- lnb -->
+    <div id="lnb" class="lnb">
+        <ul class="nav nav-list bs-docs-sidenav affix">
+            <li class="active">
+                <a href="#"><i class="icon-chevron-down"><!-- active 시 class네임 변경 --></i> 메뉴1</a>
+                <ul class="lnb_dept2" >
+                    <li><a href="#">서브1</a>
+                        <div class="popover fade right in" style="top:0; left:167px; display: none;"><!-- 툴팁 -->
+                            <div class="arrow"></div>
+                            <div class="popover-inner">
+                                <h3 class="popover-title">한글Java Community</h3>
+                                <div class="popover-content">
+                                    And here's some amazing content. It's very engaging. right?<br/>
+                                    한글Java Community<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#">서브2</a></li>
+                    <li><a href="#">서브3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="icon-chevron-right"></i> <span>메뉴2</span></a>
+                <ul class="lnb_dept2" style="display:none">
+                    <li><a href="#">서브1</a></li>
+                    <li><a href="#">서브2</a></li>
+                    <li><a href="#">서브3</a></li>
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+    <!-- // lnb -->
+
+    <div id="container" class="layout2">
+        <div id="content">
+
+
+            <!-- ########## 본문 시작 ########## -->
+            <ul class="nav nav-tabs"><!-- 20121205 컴포넌트 tab -->
+                <li class="active"><a href="#">검색 <span class="cnt"><span class="num-style01 type02"><span>200</span></span></span></a></li>
+                <li><a href="#"><span class="num-style01 type02"><span>+</span></span></a></li>
+                <li><a href="#">메뉴2</a></li>
+            </ul>
+            
+            <div class="btn_wrap">
+                <button class="btn " type="button"><i class="icon-file"></i> Default</button>
+                <button class="btn btn-green" type="button"><i class="icon-file icon-white"></i> green</button>
+                <button class="btn btn-blue" type="button"><i class="icon-remove icon-white"></i> blue</button>
+                <button class="btn btn-gray" type="button"><i class="icon-ok icon-white"></i> gray</button>
+            </div>
+            <div class="path_area">
+                <a href="#">path1</a>
+                <span class="icon-play"></span>
+                <span class="on">path1-1</span>
+            </div>
+            <div class="tb_area">
+                <table class="tb_list">
+                    <colgroup>
+                        <col width="50%" /><col width="30%" /><col width="20%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>title1</th>
+                            <th>title2</th>
+                            <th>title3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">Mark</a></td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">하나</a></td>
+                            <td>둘</td>
+                            <td>셋</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <!-- // content -->
+    </div>
+    <!-- // container -->
+</div>
+<!-- // wrap -->
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context" xmlns:hdp="http://www.springframework.org/schema/hadoop"
+  xmlns:p="http://www.springframework.org/schema/p"  
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd        
+        http://www.springframework.org/schema/hadoop http://www.springframework.org/schema/hadoop/spring-hadoop-1.0.xsd">
+  
+	<hdp:configuration id="hdfs-conf">
+        fs.default.name=hdfs://203.254.214.153:9000
+        hadoop.tmp.dir=/data/hadoop-data/
+        hadoop.job.ugi=epsvc
+    </hdp:configuration>
+    
+    <hdp:configuration id="local-hdfs-conf">
+        fs.default.name=hdfs://localhost:9000
+        hadoop.tmp.dir=/Volumes/data/Repository/hadoop
+        hadoop.job.ugi=kyungtaak
+    </hdp:configuration>
+    
+    <!-- <hdp:file-system id="sample-filesystem" configuration-ref="hdfs-conf" uri="webhdfs://203.254.214.153:8010" /> --> 
+    <hdp:file-system id="localweb-filesystem" configuration-ref="local-hdfs-conf" uri="webhdfs://localhost:50070" />  
+</beans>
