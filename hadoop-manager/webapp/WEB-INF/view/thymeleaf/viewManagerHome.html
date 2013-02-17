@@ -32,16 +32,15 @@
 
 			<!-- ########## 본문 시작 ########## -->
 			<ul class="nav nav-tabs"><!-- 20121205 컴포넌트 tab -->
-				<li class="active"><a href="#">검색 <span class="num-style01">200</span></a></li>
-				<li><a href="#"><span class="num-style01">+</span></a></li>
-				<li><a href="#">메뉴2</a></li>
+				<li class="active"><a href="#">Browser<!--<span class="num-style01">200</span>--></a></li>
+				<li><a href="#"><span class="num-style01">+</span></a></li>				
 			</ul>
 			
 			<div class="btn_wrap">
-				<button class="btn " type="button"><i class="icon-file"></i> Default</button>
-				<button class="btn btn-green" type="button"><i class="icon-file icon-white"></i> green</button>
-				<button class="btn btn-blue" type="button"><i class="icon-remove icon-white"></i> blue</button>
-				<button class="btn btn-gray" type="button"><i class="icon-ok icon-white"></i> gray</button>
+				<button class="btn " type="button"><i class="icon-file"></i> New Folder</button>
+				<button class="btn btn-green" type="button"><i class="icon-file icon-white"></i> Upload</button>
+				<button class="btn btn-blue" type="button"><i class="icon-remove icon-white"></i> Delete</button>
+				<button class="btn btn-gray" type="button"><i class="icon-ok icon-white"></i> Streaming</button>
 			</div>
 			
 			<div class="path_area">
@@ -68,7 +67,7 @@
                     <tbody>
                          <tr th:each="file : ${fileList}">
                          	<td class="first"><input type="checkbox" /></td>
-                            <td><span class="icon-folder2-close" th:class="${file.dir} ? 'icon-folder2-close' : 'icon-folder-close'"></span><a href="#" th:onclick="'onFileClick(\'' + ${file.path} + '\', ' + ${file.dir} + ');return false;'" th:text="${file.name}">fileName</a></td>
+                            <td><span class="icon-folder2-close" th:class="${file.dir} ? 'icon-folder2-close' : 'icon-folder-close'"> </span><a href="#" th:onclick="'onFileClick(\'' + ${file.path} + '\', ' + ${file.dir} + ');return false;'" th:text="${file.name}">fileName</a></td>
                             <td th:text="${file.length}">12343</td>
                             <td th:text="${file.owner}">kyungtaak</td>
                             <td th:text="${file.group}">group</td>
@@ -166,7 +165,21 @@
   			changeDirectory(path);
   		} else {
   			console.log('[F]onFileClick :: FileView > ' + path );
+  			fileView(path);
   		}
+  	}
+  	
+  	function fileView(path) {
+  		var param = {"path":path};    		
+  		// servelet 명 부분 치환 필요!!
+  		$.getJSON('/hadoop-manager/filesystem/contents.hdfs', param, function(data) {
+  			viewContentsLayer(data, path);
+  		});
+  	}
+  	
+  	function viewContentsLayer(data, path) {
+  		console.log('[F]viewContentsLayer> ' + path)
+  		console.log(data.contents);
   	}
   	
   	function changeDirectory(path) {
@@ -194,7 +207,13 @@
   		for(var i=0;i<data.length;i++) {
   			var $tempTR = $tr.clone();
   			$tempTR.append('<td class="first"><input type="checkbox" /></td>');
-			$tempTR.append($th.clone().html('<span class="icon-folder-close"></span><a href="#" onClick="onFileClick(\'' + data[i].path + '\', ' + data[i].dir + ');return false;">' + data[i].name + '</a>'));
+  			var folderClass;
+  			if(data[i].dir) {
+  				folderClass = 'icon-folder2-close'
+  			} else {
+  				folderClass = 'icon-folder-close'
+  			}
+			$tempTR.append($th.clone().html('<span class="' + folderClass + '"> </span><a href="#" onClick="onFileClick(\'' + data[i].path + '\', ' + data[i].dir + ');return false;">' + data[i].name + '</a>'));
       		$tempTR.append($th.clone().html(data[i].length));
       		$tempTR.append($th.clone().html(data[i].owner));
       		$tempTR.append($th.clone().html(data[i].group));

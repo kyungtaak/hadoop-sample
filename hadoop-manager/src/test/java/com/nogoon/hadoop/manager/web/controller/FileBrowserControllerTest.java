@@ -50,5 +50,16 @@ public class FileBrowserControllerTest {
 		System.out.println(ToStringBuilder.reflectionToString(
 				result.getResponse(), ToStringStyle.MULTI_LINE_STYLE));
 	}
+	
+	@Test
+	public void getfileContents() throws Exception {
+		MvcResult result = mvc.perform(get("/filesystem/contents").param("path", "/user/kyungtaak/conf/hadoop-env.sh"))
+				.andExpect(status().isOk())
+				.andReturn();
+
+		System.out.println(ToStringBuilder.reflectionToString(
+				result.getResponse(), ToStringStyle.MULTI_LINE_STYLE));
+
+	}
 
 }
