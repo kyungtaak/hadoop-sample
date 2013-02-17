@@ -1,7 +1,11 @@
 package com.nogoon.hadoop.manager.web.controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +31,25 @@ public class HadoopManagerController {
 		
 		List<HadoopFile> hadoopFileList = fileSystemService.getFileList("/");
 		
+		String jsonResult = null;
+		try {
+			jsonResult = new ObjectMapper().writeValueAsString(hadoopFileList);
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		log.debug("JSON : \n" + jsonResult);
+		
 		ModelAndView mav = new ModelAndView("thymeleaf/viewManagerHome");
 		mav.addObject("fileList", hadoopFileList);
+		mav.addObject("fileInfoString", jsonResult);
 		
 		return mav;
 	}

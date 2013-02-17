@@ -84,13 +84,13 @@
 </div>
 <!-- // wrap -->
 
-<script>
+<script th:inline="javascript">
 //<![CDATA[
   	$(function() {
   		var initialPath = "/";
   		pathView(initialPath);
   		
-  		var initialFileData = '[{"length":0,"name":"test1","path":"/test1","permission":null,"owner":"epsvc","children":[],"level":1,"dir":true,"parentDir":"root","group":null,"midTime":null},{"length":0,"name":"test2","path":"/test2","permission":null,"owner":"epsvc","children":[],"level":1,"dir":true,"parentDir":"root","group":null,"midTime":null}]';
+  		var initialFileData = /*[[${fileInfoString}]]*/ '[{"length":0,"name":"test1","path":"/test1","permission":null,"owner":"epsvc","children":[],"level":1,"dir":true,"parentDir":"root","group":null,"midTime":null},{"length":0,"name":"test2","path":"/test2","permission":null,"owner":"epsvc","children":[],"level":1,"dir":true,"parentDir":"root","group":null,"midTime":null}]';
   		
   		// treeview 초기화.
   		$('#tree').dynatree({

@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 
+import com.nogoon.hadoop.manager.model.HadoopContent;
 import com.nogoon.hadoop.manager.model.HadoopFile;
 
 public class MockFileSystemService implements FileSystemService {
@@ -77,6 +78,12 @@ public class MockFileSystemService implements FileSystemService {
 		}
 		
 		return resultList;
+	}
+
+	@Override
+	public HadoopContent getfileContents(String path, long offset) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

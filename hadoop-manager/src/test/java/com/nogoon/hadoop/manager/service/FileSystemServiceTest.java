@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 import com.nogoon.hadoop.manager.config.HadoopServiceTestConfig;
+import com.nogoon.hadoop.manager.model.HadoopContent;
 import com.nogoon.hadoop.manager.model.HadoopFile;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,6 +31,13 @@ public class FileSystemServiceTest {
 		printFileList(fileList);
 		
 		
+	}
+	
+	@Test
+	public void getFileContents() {
+		HadoopContent content = fileSystemService.getfileContents("/user/kyungtaak/conf/hadoop-env.sh", 0L);
+		
+		System.out.println(content.getContents());
 	}
 	
 	public void printFileList(List<HadoopFile> fileList) {

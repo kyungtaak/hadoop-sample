@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.nogoon.hadoop.manager.model.HadoopContent;
 import com.nogoon.hadoop.manager.model.HadoopFile;
 import com.nogoon.hadoop.manager.service.FileSystemService;
 
@@ -30,6 +31,16 @@ public class FileBrowserController {
 		List<HadoopFile> fileList = fileSystemService.getFileList(path);
 		
 		return fileList;
+	}
+	
+	@RequestMapping(value="/contents", method = RequestMethod.GET)
+	@ResponseBody
+	public HadoopContent getfileContents(@RequestParam(value="path") String path) {
+		log.info("call getfileContents : " + path);
+		
+		HadoopContent contents = fileSystemService.getfileContents(path, 0L);
+		
+		return contents;
 	}
 	
 }

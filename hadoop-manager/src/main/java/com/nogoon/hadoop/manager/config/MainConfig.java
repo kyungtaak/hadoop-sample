@@ -18,7 +18,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 @Configuration
 @EnableWebMvc
-// @ImportResource("classpath:spring-ejb-remote.xml")
+@ImportResource(value="classpath:applicationContext.xml")
 @ComponentScan({ "com.nogoon.hadoop.manager.web.controller",
 		"com.nogoon.hadoop.manager.service" })
 public class MainConfig extends WebMvcConfigurationSupport {
