@@ -14,6 +14,7 @@
     
     <hdp:configuration id="local-hdfs-conf">
         fs.default.name=hdfs://localhost:9000
+        mapred.job.tracker=localhost:9001
         hadoop.tmp.dir=/Volumes/data/Repository/hadoop
         hadoop.job.ugi=kyungtaak
     </hdp:configuration>

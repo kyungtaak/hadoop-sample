@@ -40,7 +40,7 @@
 				<button class="btn " type="button"><i class="icon-file"></i> New Folder</button>
 				<button class="btn btn-green" type="button"><i class="icon-file icon-white"></i> Upload</button>
 				<button class="btn btn-blue" type="button"><i class="icon-remove icon-white"></i> Delete</button>
-				<button class="btn btn-gray" type="button"><i class="icon-ok icon-white"></i> Streaming</button>
+				<button class="btn btn-gray" type="button" onClick="viewStreamingLayer();return false;"><i class="icon-ok icon-white"></i> Streaming</button>
 			</div>
 			
 			<div class="path_area">
@@ -66,7 +66,7 @@
                     </thead>
                     <tbody>
                          <tr th:each="file : ${fileList}">
-                         	<td class="first"><input type="checkbox" /></td>
+                         	<td class="first"><input type="checkbox" th:value="${file.path}" /></td>
                             <td><span class="icon-folder2-close" th:class="${file.dir} ? 'icon-folder2-close' : 'icon-folder-close'"> </span><a href="#" th:onclick="'onFileClick(\'' + ${file.path} + '\', ' + ${file.dir} + ');return false;'" th:text="${file.name}">fileName</a></td>
                             <td th:text="${file.length}">12343</td>
                             <td th:text="${file.owner}">kyungtaak</td>
@@ -75,6 +75,55 @@
                     </tbody>
                 </table>
             </div>
+            <a href="#myModal" data-toggle="modal">Mark1 클릭</a> <br/>
+            <a href="#stModal" data-toggle="modal">Mark2 클릭</a>
+            <!-- 그리드 본문 팝업 -->
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+              <div class="modal-header">
+                <button class="close icon-remove" type="button" data-dismiss="modal" aria-hidden="true"></button>
+                <h3>Mark1</h3>
+              </div>
+              <div class="modal-body">
+                <textarea class="text_con">
+혜민 스님의 '멈추면, 비로소 보이는 것들'이 출간 13개월 만에 200만부 돌파를 앞두고 있다. 비소설 단행본 중 '최단 기간 200만부 돌파' 기록이다.
+◇'멈추면…'의 멈추지 않는 열풍
+지난해 1월 27일 출간된 이 책은 14일 현재 총 197만7183부(출판사 출고 기준)가 팔렸다. 출판사인 쌤앤파커스는 "이미 예약 주문된 4만5000부를 15일 출고하면 누적 출고 202만2183부가 돼 이날 200만부를 돌파하게 된다"고 밝혔다.
+'나의 문화유산답사기'( 유홍준 ) 시리즈가 지난해 3월 인문서로는 처음으로 300만부를 돌파했지만, 이는 6권을 모두 합한 수치다. 지난 2007년 출간된 '시크릿'(론다 번)은 열풍을 일으키며 빠른 속도로 팔려나갔지만 아직까지 200만부 판매엔 미치지 못했다. 2011년 출간된 '아프니까 청춘이다'( 김난도 )는 14일까지 194만부가 팔렸다.
+문학에서는 신경숙 장편소설 '엄마를 부탁해'가 지난해 4월 출간 3년 반 만에 200만부를 돌파했다. 한국소설 중 단권으로 200만부 판매를 넘은 경우는 김정현의 '아버지'(1996), 조창인의 '가시고기'(2000)가 있다.
+                </textarea>
+              </div>
+              <div class="modal-footer">
+                <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">취소</a>
+                <a href="#" class="btn btn-primary">저장</a>
+              </div>
+            </div>
+            <!-- // 그리드 본문 팝업 -->
+            
+            <!-- 스트리밍 팝업 -->
+            <div id="stModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+              <div class="modal-header">
+                <button class="close icon-remove" type="button" data-dismiss="modal" aria-hidden="true"></button>
+                <h3>Hadoop Streaming</h3>
+              </div>
+              <div class="modal-body">
+              	MapperScript<br/>
+                <textarea id="mapper" rows="6" style="height: 40%; width: 90%;">
+
+                </textarea><br/>
+                ReduceScript<br/>
+                <textarea id="reducer" rows="6" style="height: 40%; width: 90%;">
+
+                </textarea><br/><br/>
+                Input File  <input type="text" id="inputPath" /><br/>
+                Output Directory <input type="text" id="outputPath" />
+              </div>
+              <div class="modal-footer">
+                <span>abc</span>
+                <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">취소</a>
+                <a href="#" onClick="goStreaming();return false;" class="btn btn-primary">RUN</a>
+              </div>
+            </div>
+            <!-- // 스트리밍 팝업 -->
             
         </div>
         <!-- // content -->
@@ -85,6 +134,9 @@
 
 <script th:inline="javascript">
 //<![CDATA[
+           
+    var currentPath = "/";
+    
   	$(function() {
   		var initialPath = "/";
   		pathView(initialPath);
@@ -122,8 +174,62 @@
   		
   	});
   	
+  	function viewStreamingLayer() {
+  		console.log('[F]viewStreamingLayer> ');
+  		
+  		$('#stModal .modal-footer span').text('');
+  		$('#outputPath').val('');
+  		$('#mapper').val('');
+  		$('#reducer').val('');
+  		
+  		
+  		var path = $('input:checkbox:checked').val();
+  		
+  		console.log('checked path > ' + path);
+  		
+  		$('#inputPath').val(path);  		
+  		
+  		$('#stModal').modal('show');
+  	}
+  	
+  	function goStreaming() {
+  		console.log('[F]goStreaming> ');
+  		
+  		var param = {};
+  		var outputPath = $('#outputPath').val();
+  		param.inputPath = $('#inputPath').val();
+  		param.outputPath = outputPath;
+  		param.mapperScript = $('#mapper').val();
+  		param.reducerScript = $('#reducer').val();
+  		
+  		console.log(param);
+  		
+  		$('#stModal .modal-footer span').text('WAIT...');
+  		
+  		$.getJSON('/hadoop-manager/streaming/script.hdfs', param, function(data) {
+  			showStreamingResult(data, outputPath);
+  		});
+  		
+  	}
+  	
+  	function showStreamingResult(data, outputPath) {
+  		//  결과 보여줌
+  		//  check output path!!
+  		$('#stModal .modal-footer span').html('Check output path <a href="#" onClick="goResultPath(\'' + outputPath + '\');return false;">GO!!!</a>');
+  	}
+  	
+  	function goResultPath(path) {
+  		$('#stModal').modal('hide');
+  		//tree refresh
+  		
+  		//change directory
+  		changeDirectory(path);
+  	}
+  	
   	function pathView(path) {
 		var $pathDiv = $(".path_area");
+		
+		currentPath = path;
 	
 		var hierarchicalPath = parsePath(path);
   		
@@ -180,6 +286,9 @@
   	function viewContentsLayer(data, path) {
   		console.log('[F]viewContentsLayer> ' + path)
   		console.log(data.contents);
+  		$('#myModal .modal-header h3').text(path);
+  		$('#myModal .modal-body textarea').text(data.contents);
+  		$('#myModal').modal('show');
   	}
   	
   	function changeDirectory(path) {
@@ -206,7 +315,7 @@
   		
   		for(var i=0;i<data.length;i++) {
   			var $tempTR = $tr.clone();
-  			$tempTR.append('<td class="first"><input type="checkbox" /></td>');
+  			$tempTR.append('<td class="first"><input type="checkbox" value="' + data[i].path + '"/></td>');
   			var folderClass;
   			if(data[i].dir) {
   				folderClass = 'icon-folder2-close'
