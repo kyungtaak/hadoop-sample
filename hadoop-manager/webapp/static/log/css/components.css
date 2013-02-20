@@ -1,5 +1,4 @@
-
-/** 寃�깋 踰꾪듉 css **/
+/** 검색 버튼 css **/
 .btn-group {display: inline-block;font-size: 0;position: relative;vertical-align: middle;white-space: nowrap;}
 .btn-group:first-child {*margin-left: 0;}
 button.btn,
@@ -123,6 +122,7 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 }
 .dropdown-menu.pull-right {right: 0;left: auto;}
 .dropdown-menu .divider {*width: 100%;*margin: -5px 0 5px;background-color: #E5E5E5;height: 1px;margin: 9px 1px;overflow: hidden;}
+.dropdown-menu li {position:relative;}
 .dropdown-menu li > a {display: block;padding: 3px 20px;clear: both;font-weight: normal;line-height: 20px;color: #333333;white-space: nowrap;}
 .dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,
@@ -162,7 +162,7 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .btn-group.open .btn.dropdown-toggle {background-color: #E6E6E6; }
 .btn-group.open .dropdown-toggle {background-image: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);}
 
-/* 踰꾪듉 �ㅽ궓 - blue1 */
+/* 버튼 스킨 - blue1 */
 .btn-primary.active,
 .btn-warning.active,
 .btn-danger.active,
@@ -249,7 +249,6 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .btn-blue.active,
 .btn-blue.disabled,
 .btn-blue[disabled] {color: #ffffff;background-color: #2f96b4 !important;*background-color: #2a85a0 !important;}
-
 .btn-blue:active,
 .btn-blue.active {background-color: #24748c \9 !important;}
 
@@ -283,9 +282,16 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
      -moz-border-radius: 6px;
           border-radius: 6px;
 }
-
 .btn-small {padding:1px 5px 0; line-height:16px; border-radius: 2px; font-size:11px;}
-/** �꾩씠肄�**/
+.btn-xsmall {background:#fff; color:#d14; font-size:11px; border:1px solid #c7c7cf; cursor:pointer; padding:0 4px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;	
+}
+.btn-xsmall:hover {background:#f7f7f9}
+.btn-chart {margin-left:30px;}
+
+/** 아이콘 **/
 [class^="icon-"],
 [class*=" icon-"] {
   display: inline-block;
@@ -295,20 +301,12 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  /* background-image: url("/static/log/image/glyphicons-halflings.png"); */
-  background-image: url("../image/glyphicons-halflings.png");
-  background-position: 14px 14px;
-  background-repeat: no-repeat;
+  background-image:url("../image/glyphicons-halflings.png");
+  background-position:14px 14px;
+  background-repeat:no-repeat;
 }
-.btn-chart {margin-left:30px;}
-/* White icons with optional class, or on hover/active states of certain elements */
-.btn-xsmall {background:#fff; color:#d14; font-size:11px; border:1px solid #c7c7cf; cursor:pointer; padding:0 4px;
-  -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;	
-}
-.btn-xsmall:hover {background:#f7f7f9}
 
+/* White icons with optional class, or on hover/active states of certain elements */
 .icon-white,
 .nav-pills > .active > a > [class^="icon-"],
 .nav-pills > .active > a > [class*=" icon-"],
@@ -322,7 +320,6 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-submenu:hover > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"] {
-  /* background-image: url("/static/log/image/glyphicons-halflings-white.png"); */
   background-image: url("../image/glyphicons-halflings-white.png");
 }
 
@@ -397,7 +394,7 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .icon-step-backward {background-position: -192px -72px;}
 .icon-fast-backward {background-position: -216px -72px;}
 .icon-backward {background-position: -240px -72px;}
-.icon-play { background-position: -264px -72px;}
+.icon-play {background-position: -264px -72px;}
 .icon-pause {background-position: -288px -72px;}
 .icon-stop {background-position: -312px -72px;}
 .icon-forward {background-position: -336px -72px;}
@@ -466,9 +463,9 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .icon-filter {background-position: -408px -144px;}
 .icon-briefcase {background-position: -432px -144px}
 .icon-fullscreen {background-position: -456px -144px}
-.icon-folder2-close {background-position:0 -162px}
 
-/** ��**/
+
+/** 탭 **/
 .nav {margin-left: 0;list-style: none;}
 .nav > li > a {display: block;}
 .nav > li > a:hover {text-decoration: none;background-color: #eeeeee;}
@@ -496,7 +493,7 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
           border-radius: 2px 2px 2px 2px;
 }
 
-/** �댄똻1 **/
+/** 툴팁1 **/
 .tooltip {position: absolute;z-index: 1030;display: block;padding: 5px;font-size: 11px;opacity: 0;filter: alpha(opacity=0);visibility: visible;}
 .tooltip.in {opacity: 0.8;filter: alpha(opacity=80);}
 .tooltip.top {margin-top: -3px;}
@@ -524,7 +521,7 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 
 .fade.in {opacity: 1;}
 
-/** �댄똻2 **/
+/** 툴팁2 **/
 .popover {position: absolute;top: 0;left: 0; z-index: 1010;display: none;width: 236px;padding: 1px; background-color: #ffffff;border: 1px solid #ccc;border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
@@ -565,11 +562,11 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .popover a.close:hover {color: #000000; text-decoration:none; cursor:pointer; opacity: 0.4;filter: alpha(opacity=40);}
 
 /* Header nav */
-#header_wrap ul {margin-left:20px;}
-#header_wrap li {float:left;}
-#header_wrap li a{color:#999999; padding: 12px 15px 8px; display:block}
-#header_wrap li a:hover {color:#fff;}
-#header_wrap li.active a{color:#fff; background:#111111}
+#header_wrap .gnb {float:left; margin-left:20px;}
+#header_wrap .gnb li{float:left;}
+#header_wrap .gnb a{color:#999999; padding: 12px 15px 8px; display:block}
+#header_wrap .gnb a:hover {color:#fff;}
+#header_wrap .gnb.active a{color:#fff; background:#111111}
 
 
 /* Sidenav for Docs
@@ -619,7 +616,6 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .bs-docs-sidenav > li > a:hover {background-color: #f5f5f5;}
 .bs-docs-sidenav a:hover .icon-chevron-right {opacity: .5;}
 .bs-docs-sidenav .active .icon-chevron-right,
-/* .bs-docs-sidenav .active a:hover .icon-chevron-right {background-image: url(/static/log/image/glyphicons-halflings-white.png); opacity: 1;} */
 .bs-docs-sidenav .active a:hover .icon-chevron-right {background-image: url(../image/glyphicons-halflings-white.png); opacity: 1;}
 .bs-docs-sidenav.affix {top: 40px;}
 .bs-docs-sidenav.affix-bottom {position: absolute;top: auto; bottom: 270px;}
@@ -654,15 +650,11 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .tb_list td a:hover {color:#0088cc}
 .tb_list.first {text-align:center;}
 
-/* on-off �ㅼ쐞移�*/
-/* .switch {position:relative; display:inline-block;width:30px;height:17px;cursor:pointer; background: url(/static/log/image/switch.png) 0 0 no-repeat;} */
+/* on-off 스위치 */
 .switch {position:relative; display:inline-block;width:30px;height:17px;cursor:pointer; background: url(../image/switch.png) 0 0 no-repeat;}
-/* .switch .ss-on {position:absolute;display: block;width: 30px;height: 17px;background: url(/static/log/image/switch.png) -30px 0 no-repeat;} */
 .switch .ss-on {position:absolute;display: block;width: 30px;height: 17px;background: url(../image/switch.png) -30px 0 no-repeat;}
-/* .switch .ss-slider {position: absolute;left: 0px;width: 15px;height: 16px;margin: 0 1px;background: url(/static/log/image/switch.png) -60px 0 no-repeat;} */
 .switch .ss-slider {position: absolute;left: 0px;width: 15px;height: 16px;margin: 0 1px;background: url(../image/switch.png) -60px 0 no-repeat;}
 .switch.icons {background-position: 0 -17px;}
-/* .switch.icons .ss-on {background: url(/static/log/image/switch.png) -30px -17px no-repeat;} */
 .switch.icons .ss-on {background: url(../image/switch.png) -30px -17px no-repeat;}
 
 
@@ -710,9 +702,9 @@ button.close {padding: 0;cursor:pointer; border: 0;-webkit-appearance: none;}
 .modal-footer .btn {margin-bottom:0; margin-left:3px; padding:2px 10px; font-size:12px;}
 .modal-footer .btn-group .btn + .btn { margin-left: -1px;}
 .modal-footer .btn-block + .btn-block {margin-left: 0;}
+.modal-body.write {padding-left:0;}
 
-
-/* Tree */
+/** Tree **/
 ul.dynatree-container{white-space: nowrap; margin: 0;  overflow: auto; height: 100%; /* issue 263 */}
 ul.dynatree-container ul{padding: 0 0 0 16px; margin: 0;}
 ul.dynatree-container li{list-style-image: none;list-style-position: outside;list-style-type: none;
@@ -741,33 +733,25 @@ span.dynatree-icon,
 span.dynatree-checkbox,
 span.dynatree-radio,
 span.dynatree-drag-helper-img,
-/*#dynatree-drop-marker{width: 16px;height: 16px;display:inline-block;vertical-align: top;background-repeat: no-repeat;background-position: left;background-image: url("/static/log/image/icons.gif");background-position: 0 0;}*/
 #dynatree-drop-marker{width: 16px;height: 16px;display:inline-block;vertical-align: top;background-repeat: no-repeat;background-position: left;background-image: url("../image/icons.gif");background-position: 0 0;}
 
-/** Used by 'icon' node option: */
+/* Used by 'icon' node option: */
 ul.dynatree-container img{width: 16px;height: 16px;margin-left: 3px;vertical-align: top;border-style: none;}
-
 span.dynatree-connector{background-image: none;}
 span.dynatree-expander{background-position: 0px -80px;cursor: pointer;}
 span.dynatree-expander:hover{background-position: -16px -80px;}
-.dynatree-exp-cl span.dynatree-expander /* Collapsed, not delayed, last sibling */{}
-.dynatree-exp-cd span.dynatree-expander /* Collapsed, delayed, not last sibling */{}
-.dynatree-exp-cdl span.dynatree-expander /* Collapsed, delayed, last sibling */{}
-.dynatree-exp-e span.dynatree-expander,  /* Expanded, not delayed, not last sibling */
-.dynatree-exp-ed span.dynatree-expander,  /* Expanded, delayed, not last sibling */
-.dynatree-exp-el span.dynatree-expander,  /* Expanded, not delayed, last sibling */
-.dynatree-exp-edl span.dynatree-expander  /* Expanded, delayed, last sibling */{background-position: -32px -80px;}
-.dynatree-exp-e span.dynatree-expander:hover,  /* Expanded, not delayed, not last sibling */
-.dynatree-exp-ed span.dynatree-expander:hover,  /* Expanded, delayed, not last sibling */
-.dynatree-exp-el span.dynatree-expander:hover,  /* Expanded, not delayed, last sibling */
-.dynatree-exp-edl span.dynatree-expander:hover  /* Expanded, delayed, last sibling */{background-position: -48px -80px;}
-/* .dynatree-loading span.dynatree-expander  'Loading' status overrides all others{background-position: 0 0;background-image: url("/static/log/image/loading.gif");} */
-.dynatree-loading span.dynatree-expander  /* 'Loading' status overrides all others */{background-position: 0 0;background-image: url("../image/loading.gif");}
+.dynatree-exp-e span.dynatree-expander,
+.dynatree-exp-ed span.dynatree-expander,
+.dynatree-exp-el span.dynatree-expander,
+.dynatree-exp-edl span.dynatree-expander{background-position: -32px -80px;}
+.dynatree-exp-e span.dynatree-expander:hover,
+.dynatree-exp-ed span.dynatree-expander:hover,
+.dynatree-exp-el span.dynatree-expander:hover,
+.dynatree-exp-edl span.dynatree-expander:hover {background-position: -48px -80px;}
+.dynatree-loading span.dynatree-expander {background-position: 0 0;background-image: url("../image/loading.gif");}
 
 
-/*******************************************************************************
- * Checkbox icon
- */
+/* Checkbox icon */
 span.dynatree-checkbox{margin-left: 3px;background-position: 0px -32px;}
 span.dynatree-checkbox:hover{background-position: -16px -32px;}
 .dynatree-partsel span.dynatree-checkbox{background-position: -64px -32px;}
@@ -775,11 +759,6 @@ span.dynatree-checkbox:hover{background-position: -16px -32px;}
 .dynatree-selected span.dynatree-checkbox{background-position: -32px -32px;}
 .dynatree-selected span.dynatree-checkbox:hover{background-position: -48px -32px;}
 
-/*******************************************************************************
- * Radiobutton icon
- * This is a customization, that may be activated by overriding the 'checkbox'
- * class name as 'dynatree-radio' in the tree options.
- */
 span.dynatree-radio{margin-left: 3px;background-position: 0px -48px;}
 span.dynatree-radio:hover{background-position: -16px -48px;}
 .dynatree-partsel span.dynatree-radio{background-position: -64px -48px;}
@@ -787,25 +766,14 @@ span.dynatree-radio:hover{background-position: -16px -48px;}
 .dynatree-selected span.dynatree-radio{background-position: -32px -48px;}
 .dynatree-selected span.dynatree-radio:hover{background-position: -48px -48px;}
 
-/*******************************************************************************
- * Node type icon
- * Note: IE6 doesn't correctly evaluate multiples class names,
- *		 so we create combined class names that can be used in the CSS.
- *
- * Prefix: dynatree-ico-
- * 1st character: 'e': expanded, 'c': collapsed
- * 2nd character (optional): 'f': folder
- */
-
 span.dynatree-icon /* Default icon */{margin-left: 3px;background-position: 0px 0px;}
 .dynatree-has-children span.dynatree-icon /* Default icon */{/*    background-position: 0px -16px; */}
 .dynatree-ico-cf span.dynatree-icon  /* Collapsed Folder */{background-position: 0px -16px;}
 .dynatree-ico-ef span.dynatree-icon  /* Expanded Folder */{background-position: -64px -16px;}
 
 /* Status node icons */
-/* .dynatree-statusnode-wait span.dynatree-icon{background-image: url("/static/log/image/loading.gif");} */
 .dynatree-statusnode-wait span.dynatree-icon{background-image: url("../image/loading.gif");}
-.dynatree-statusnode-error span.dynatree-icon{background-position: 0px -112px;/*	background-image: url("ltError.gif");*/}
+.dynatree-statusnode-error span.dynatree-icon{background-position: 0px -112px;}
 span.dynatree-node{}
 /* Remove blue color and underline from title links */
 ul.dynatree-container a/*, ul.dynatree-container a:visited*/
@@ -855,4 +823,27 @@ span.dynatree-drop-target.dynatree-drop-reject{/*border: 1px solid red;*/}
 span.dynatree-drop-target.dynatree-drop-after a{}
 
 
+/** colum **/
+.column_wrap {border-radius:6px; border:1px solid rgba(0, 0, 0, 0.2)}
+.column_wrap .row {border-bottom:1px solid #eee; padding:7px 10px !important}
+.column_wrap .row:after {content:"";display:block;clear:both;height:0;visibility:hidden;}
+.column_wrap .row .tit {float:left; width:150px; border-right:1px solid #eee; font-weight:bold; line-height:23px; }
+.column_wrap .row .con {display:block; padding-left:170px}
+.column_wrap .row .con .row_in {clear:both;}
+
+.column_wrap .row:first-child {padding-top:10px}
+.column_wrap .row:last-child {border-bottom:0; padding-top:10px;}
+.column_wrap .row .con input[type="text"]{width:70%; min-width:200px; }
+.column_wrap .row .con input.txt_small {width:50px; min-width:auto}
+.column_wrap .row .con select {min-width:300px}
+.column_wrap .row .group {background:#f6f6f6; margin:5px 0 5px; padding:3px 3px 3px 7px; border:1px solid #eee; border-radius:4px;}
+
+/* popup_column */
+.column_wrap.popup_column {border:none; border-radius:0;}
+.column_wrap.popup_column textarea {height:40%; width:95%}
+.column_wrap.popup_column .row .con input[type="text"]{width:95%;}
+
+.tb_list [class^="icon-"], .tb_list [class*=" icon-"] {background:url("../image/glyphicons-halflings.png")}
+.tb_list .icon-folder-close {background-position:-385px -122px;}
+.tb_list .icon-folder2-close {background-position:0 -162px;}
 

@@ -55,6 +55,8 @@ public class FileSystemServiceImpl implements FileSystemService {
 	public HadoopContent getfileContents(String path, long offset) {
 
 		String resultContents = null;
+		
+		long limitSize = 4096 * 1024 * 1024 * 5;
 
 		try {
 			FSDataInputStream fis = fileSystem.open(new Path(path));
@@ -62,6 +64,9 @@ public class FileSystemServiceImpl implements FileSystemService {
 			byte[] b = new byte[4096];
 			for (int n; (n = fis.read(b)) != -1;) {
 				out.append(new String(b, 0, n));
+				if(out.length() > limitSize) {
+					break;
+				}
 			}
 			
 			resultContents = out.toString();

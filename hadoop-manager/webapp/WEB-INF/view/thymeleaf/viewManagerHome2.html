@@ -32,7 +32,7 @@
 
 			<!-- ########## 본문 시작 ########## -->
 			<ul class="nav nav-tabs"><!-- 20121205 컴포넌트 tab -->
-				<li class="active"><a href="#">Browser</a></li>
+				<li class="active"><a href="#">Browser<!--<span class="num-style01">200</span>--></a></li>
 				<li><a href="#"><span class="num-style01">+</span></a></li>				
 			</ul>
 			
@@ -53,7 +53,7 @@
             <div class="tb_area">
                 <table class="tb_list">
                     <colgroup>
-                        <col width="30px" /><col width="*" /><col width="10%" /><col width="20%" /><col width="20%" />
+                        <col width="30px" /><col width="30%" /><col width="10%" /><col width="20%" /><col width="20%" />
                     </colgroup>
                     <thead>
                         <tr>
@@ -105,31 +105,18 @@
                 <button class="close icon-remove" type="button" data-dismiss="modal" aria-hidden="true"></button>
                 <h3>Hadoop Streaming</h3>
               </div>
-              <div class="modal-body write">
-				<fieldset>
-					<legend>Hadoop Streaming form</legend>
-					<div class="column_wrap popup_column">
-						<div class="row">
-							<label class="tit">MapperScript</label>
-							<span class="con"><textarea rows="6" id="mapper"></textarea></span>
-						</div>
-						<div class="row">
-							<label class="tit">ReduceScript</label>
-							<span class="con"><textarea rows="6" id="reducer"></textarea></span>
-						
-						</div>
-						<div class="row">
-							<label class="tit">Input File</label>
-							<span  class="con"><input type="text" id="inputPath" /></span>
-						</div>
-						<div class="row">
-							<label class="tit">Output Directory</label>
-							<span class="con"> <input type="text" id="outputPath" /></span>
-						</div>
-					</div>
-				</fieldset>
+              <div class="modal-body">
+              	MapperScript<br/>
+                <textarea id="mapper" rows="6" style="height: 40%; width: 90%;">
+
+                </textarea><br/>
+                ReduceScript<br/>
+                <textarea id="reducer" rows="6" style="height: 40%; width: 90%;">
+
+                </textarea><br/><br/>
+                Input File  <input type="text" id="inputPath" /><br/>
+                Output Directory <input type="text" id="outputPath" />
               </div>
-              
               <div class="modal-footer">
                 <span>abc</span>
                 <a href="#" class="btn" data-dismiss="modal" aria-hidden="true">취소</a>
@@ -324,7 +311,7 @@
   		$pathList.empty();
   		
   		var $tr = $('<tr></tr>');
-  		var $td = $('<td></td>');
+  		var $th = $('<th></th>');
   		
   		for(var i=0;i<data.length;i++) {
   			var $tempTR = $tr.clone();
@@ -335,10 +322,10 @@
   			} else {
   				folderClass = 'icon-folder-close'
   			}
-			$tempTR.append($td.clone().html('<span class="' + folderClass + '"> </span><a href="#" onClick="onFileClick(\'' + data[i].path + '\', ' + data[i].dir + ');return false;">' + data[i].name + '</a>'));
-      		$tempTR.append($td.clone().html(data[i].length));
-      		$tempTR.append($td.clone().html(data[i].owner));
-      		$tempTR.append($td.clone().html(data[i].group));
+			$tempTR.append($th.clone().html('<span class="' + folderClass + '"> </span><a href="#" onClick="onFileClick(\'' + data[i].path + '\', ' + data[i].dir + ');return false;">' + data[i].name + '</a>'));
+      		$tempTR.append($th.clone().html(data[i].length));
+      		$tempTR.append($th.clone().html(data[i].owner));
+      		$tempTR.append($th.clone().html(data[i].group));
       		$pathList.append($tempTR);
   		}  		
   		
