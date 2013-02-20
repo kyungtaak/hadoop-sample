@@ -17,7 +17,7 @@ import com.nogoon.hadoop.manager.service.FileSystemService;
 
 @Controller
 @RequestMapping("/filesystem")
-public class FileBrowserController {
+public class HadoopFileBrowserController {
 	
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	

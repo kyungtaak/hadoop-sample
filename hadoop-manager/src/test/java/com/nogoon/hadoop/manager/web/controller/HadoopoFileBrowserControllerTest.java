@@ -24,7 +24,7 @@ import com.nogoon.hadoop.manager.config.MainConfig;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration("webapp")
 @ContextConfiguration(classes = MainConfig.class)
-public class FileBrowserControllerTest {
+public class HadoopoFileBrowserControllerTest {
 
 	@Autowired
 	protected WebApplicationContext webApplicationContext;
